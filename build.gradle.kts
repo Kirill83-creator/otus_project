@@ -1,21 +1,17 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") apply false
 }
 
 group = "ru.basharin"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+subprojects {
+    group = rootProject.group
+    version = rootProject.version
 }
 
-dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(19)
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
